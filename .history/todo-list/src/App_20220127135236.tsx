@@ -1,11 +1,13 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import PageRouting from './routing';
 
 function App() {
   return (
     <div className="App">
-      <PageRouting />
+      <header className="App-header">
+
+      </header>
     </div>
   );
 }
