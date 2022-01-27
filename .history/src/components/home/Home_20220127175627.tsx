@@ -19,18 +19,18 @@ const Home = () => {
     return (
         <div className={style.wrapper}>
             <div className={style.container}>
-                <header className={style.header}>
-                    <Header />
-                </header>
 
-                <div className={style.content}>
-                    <AddToDo toDo={toDo} setToDo={setToDo} />
-
-                    <ToDoList toDo={toDo} setToDo={setToDo} />
-                </div>
             </div>
+            <header className={style.header}>
+                <Header />
+            </header>
 
+            <div className={style.content}>
 
+            </div>
+            <AddToDo toDo={toDo} setToDo={setToDo} />
+
+            <ToDoList toDo={toDo} setToDo={setToDo} />
         </div>
     )
 }

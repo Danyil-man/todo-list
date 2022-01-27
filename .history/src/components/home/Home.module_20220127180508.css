@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  background-color: #fff;
+}
+
+.header {
+}
+
+.content {
+}

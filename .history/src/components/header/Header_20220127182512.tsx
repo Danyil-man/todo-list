@@ -6,7 +6,7 @@ import style from './Header.module.css'
 const Header = () => {
     return (
         <div className={style.header}>
-            <h1>My Todo-s List <span><FontAwesomeIcon icon={faCheck} /></span></h1>
+            <h1>My Todo-s List </h1>  <FontAwesomeIcon icon={faCheck} />
         </div>
     )
 }

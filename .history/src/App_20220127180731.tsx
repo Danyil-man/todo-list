@@ -4,9 +4,9 @@ import PageRouting from './routing';
 
 function App() {
   return (
-
-    <PageRouting />
-
+    < >
+      <PageRouting />
+    </>
   );
 }
 

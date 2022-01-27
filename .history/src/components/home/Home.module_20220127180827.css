@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  background-color: #fff;
+}
+
+.header {
+}
+
+.content {
+}

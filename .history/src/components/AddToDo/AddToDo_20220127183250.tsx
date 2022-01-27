@@ -26,9 +26,9 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
         setToDoValue('')
     }
     return (
-        <div className={style.content}>
+        <div>
             <input placeholder="Add ToDo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
-            <button className={style.button} onClick={addToDo}>Add</button>
+            <button onClick={addToDo}>Add</button>
         </div>
     )
 }

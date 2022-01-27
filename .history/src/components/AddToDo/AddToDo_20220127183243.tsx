@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import style from './AddToDo.module.css'
+import style './AddToDo.module.css'
 
 export type ToDoType = {
     id: number,
@@ -26,9 +26,9 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
         setToDoValue('')
     }
     return (
-        <div className={style.content}>
+        <div>
             <input placeholder="Add ToDo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
-            <button className={style.button} onClick={addToDo}>Add</button>
+            <button onClick={addToDo}>Add</button>
         </div>
     )
 }
