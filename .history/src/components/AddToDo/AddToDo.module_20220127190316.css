@@ -1,0 +1,88 @@
+.content {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+.button {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+input:before,
+input:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3399ff;
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}
+
+input:after {
+  top: auto;
+  bottom: 0;
+  right: auto;
+  left: 0;
+  transition-delay: 0.6s;
+}
+
+input i:before,
+input i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: #3399ff;
+  transition: 0.2s;
+}
+
+input i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  transition-delay: 0.4s;
+}
+
+input:before,
+input:after {
+  width: 100%;
+  transition: 0.2s;
+  transition-delay: 0.6s;
+}
+
+input:after {
+  transition-delay: 0.2s;
+}
+
+input i:before,
+input i:after {
+  height: 100%;
+  transition: 0.2s;
+}
+
+input i:after {
+  transition-delay: 0.4s;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #333;
+  border-left: 1px solid #333;
+}

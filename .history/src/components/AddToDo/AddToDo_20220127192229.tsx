@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from './AddToDo.module.css'
-import { faPaperPlane, faPlane, faSeedling, faSubscript } from "@fortawesome/free-solid-svg-icons";
 
 export type ToDoType = {
     id: number,
@@ -29,8 +27,9 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     }
     return (
         <div className={style.content}>
-            <input className={style.input} placeholder="Add ToDo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
-            <button className={style.button} onClick={addToDo}>Add</button>
+            <input className={style.input} placeholder="Add ToDo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue}>
+                <button className={style.button} onClick={addToDo}>Add</button>
+            </input>
         </div>
     )
 }

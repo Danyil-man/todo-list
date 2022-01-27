@@ -1,0 +1,48 @@
+:focus {
+  outline: none;
+}
+
+.content {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  /* //box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2); */
+}
+input {
+  padding: 15px;
+  border: 0;
+  border-radius: 12px;
+  border-bottom: 1px solid #fff;
+}
+.button {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+input {
+  /* Tell the input to use all the available space */
+  flex-grow: 2;
+  /* And hide the input's outline, so the form looks like the outline */
+  border: none;
+}
+
+input:focus {
+  /* removing the input focus blue box. Put this on the form if you like. */
+  outline: none;
+}
+
+input:focus {
+  border-bottom: 1px solid #333;
+  opacity: 0.9;
+  transition: 0.8s ease-in-out;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #333;
+  border-left: 1px solid #333;
+}

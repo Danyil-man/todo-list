@@ -3,15 +3,12 @@
   margin-bottom: 40px;
   display: flex;
   box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
 }
 input {
   width: 100%;
-  padding: 15px;
-  border: 0;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  border-bottom: 1px solid #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
   outline: none;
 }
 .button {
@@ -21,18 +18,26 @@ input {
   padding: 10px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
 }
-
-input:focus {
-  border-bottom: 1px solid #333;
-  opacity: 0.9;
-  transition: 0.6s ease-in-out;
+.input:hover {
+  animation: input 0.8s ease-in-out infinite;
+  color: aqua;
 }
 
 .button:hover {
   background-color: #fff;
   color: #333;
   border-left: 1px solid #333;
+}
+
+@keyframes input {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
