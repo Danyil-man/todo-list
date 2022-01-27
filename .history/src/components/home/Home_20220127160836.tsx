@@ -19,7 +19,6 @@ const Home = () => {
         <>
             <Header />
             <AddToDo toDo={toDo} setToDo={setToDo} />
-
             <ToDoList toDo={toDo} setToDo={setToDo} />
         </>
     )

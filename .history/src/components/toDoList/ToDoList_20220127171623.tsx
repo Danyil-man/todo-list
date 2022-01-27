@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import style from "./ToDoList.module.css"
 
 type ToDoType = {
     id: number,
@@ -29,22 +28,12 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
             return item
         })
         setToDo(newStatus)
-        //axios.put(`https://61f29e642219930017f50783.mockapi.io/todos`, newStatus)
+        axios.put(`https://61f29e642219930017f50783.mockapi.io/todos`, newStatus)
     }
 
     const editToDo = (id: number, title: string) => {
         setIsEdit(id)
         setValue(title)
-    }
-    const saveToDo = (id: number) => {
-        const newTextToDo = [...toDo].map(item => {
-            if (item.id === id) {
-                item.title = value
-            }
-            return item
-        })
-        setToDo(newTextToDo)
-        setIsEdit(0)
     }
 
     console.log(toDo)
@@ -55,20 +44,16 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                     <div key={item.id}>
                         {isEdit === item.id ? (
                             <div>
-                                <input onChange={(e) => setValue(e.target.value)} value={value} />
-                                <button onClick={() => saveToDo(item.id)}>Save</button>
+                                <input onChange={ } value={ } />
+                                <button>Save</button>
                             </div>
                         ) : (
                             <>
-                                <h1 className={item.status ? '' : style.done}>{item.title}</h1>
+                                <h1>{item.title}</h1>
                                 <div>
                                     <button onClick={() => deleteToDo(item.id)}>Delete</button>
                                     <button onClick={() => editToDo(item.id, item.title)}>Edit</button>
-                                    {
-                                        item.status ? <button onClick={() => statusToDo(item.id)}> Close</button>
-                                            : <button onClick={() => statusToDo(item.id)}>Open </button>
-                                    }
-
+                                    <button onClick={() => statusToDo(item.id)}>Close / Open</button>
                                 </div>
                             </>
 

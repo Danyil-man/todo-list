@@ -20,8 +20,8 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     //const toDoObj = { id: item.id, title: toDoValue, status: item.status }
     const addToDo = async () => {
 
-        //const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos')
-        setToDo([...toDo, { id: 3, title: toDoValue, status: true }]) //{ id: 3, title: toDoValue, status: true }
+        const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos', toDoObj)
+        setToDo(response.data) //{ id: 3, title: toDoValue, status: true }
         setToDoValue('')
     }
     return (

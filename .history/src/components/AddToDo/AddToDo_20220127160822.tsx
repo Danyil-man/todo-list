@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { FC, useState } from "react";
 
 export type ToDoType = {
@@ -8,7 +7,6 @@ export type ToDoType = {
 }
 
 type ToDoListType = {
-    //item: ToDoType
     toDo: Array<ToDoType>
     setToDo: (toDo: Array<ToDoType>) => void
 }
@@ -17,11 +15,8 @@ type ToDoListType = {
 
 const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     const [toDoValue, setToDoValue] = useState('')
-    //const toDoObj = { id: item.id, title: toDoValue, status: item.status }
-    const addToDo = async () => {
-
-        //const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos')
-        setToDo([...toDo, { id: 3, title: toDoValue, status: true }]) //{ id: 3, title: toDoValue, status: true }
+    const addToDo = () => {
+        setToDo([...toDo, { id: 3, title: toDoValue, status: true }])
         setToDoValue('')
     }
     return (

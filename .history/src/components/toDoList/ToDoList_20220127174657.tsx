@@ -60,7 +60,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                             </div>
                         ) : (
                             <>
-                                <h1 className={item.status ? '' : style.done}>{item.title}</h1>
+                                <h1 className={item.status ? '' : }>{item.title}</h1>
                                 <div>
                                     <button onClick={() => deleteToDo(item.id)}>Delete</button>
                                     <button onClick={() => editToDo(item.id, item.title)}>Edit</button>

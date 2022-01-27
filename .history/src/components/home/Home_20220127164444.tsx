@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <>
             <Header />
-            <AddToDo toDo={toDo} setToDo={setToDo} />
+            {toDo.map(item => <AddToDo item={item} setToDo={setToDo} />)}
 
             <ToDoList toDo={toDo} setToDo={setToDo} />
         </>

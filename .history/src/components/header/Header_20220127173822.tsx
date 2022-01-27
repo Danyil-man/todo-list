@@ -6,6 +6,7 @@ import React from "react";
 const Header = () => {
     return (
         <div>
+            <FontAwesomeIcon icon={faSave} />
             <h1>ToDo List</h1>
         </div>
     )

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import style from "./ToDoList.module.css"
 
 type ToDoType = {
     id: number,
@@ -60,13 +59,13 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                             </div>
                         ) : (
                             <>
-                                <h1 className={item.status ? '' : style.done}>{item.title}</h1>
+                                <h1>{item.title}</h1>
                                 <div>
                                     <button onClick={() => deleteToDo(item.id)}>Delete</button>
                                     <button onClick={() => editToDo(item.id, item.title)}>Edit</button>
                                     {
-                                        item.status ? <button onClick={() => statusToDo(item.id)}> Close</button>
-                                            : <button onClick={() => statusToDo(item.id)}>Open </button>
+                                        item.status ? <button onClick={() => statusToDo(item.id)}> Open</button>
+                                            : <button onClick={() => statusToDo(item.id)}>Close </button>
                                     }
 
                                 </div>
