@@ -21,9 +21,7 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     const addToDo = async () => {
         if (toDoObj.title === '') {
             alert("Input can't be blank")
-            return
         }
-
         const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos', toDoObj)
         setToDo([...toDo, response.data]) //{ id: rand, title: toDoValue, status: true }
         setToDoValue('')

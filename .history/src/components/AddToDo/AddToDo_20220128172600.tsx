@@ -20,7 +20,7 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     const toDoObj = { title: toDoValue, status: true }
     const addToDo = async () => {
         if (toDoObj.title === '') {
-            alert("Input can't be blank")
+            //alert("Input can't be blank")
             return
         }
 
@@ -30,7 +30,7 @@ const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     }
     return (
         <div className={style.content}>
-            <input className={style.input} placeholder="Add Todo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
+            <input className={style.input} placeholder="Add Todo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} required />
             <button className={style.button} onClick={addToDo}>Add</button>
         </div>
     )
