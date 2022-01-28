@@ -48,8 +48,12 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.title = value
         }
-        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
-        setToDo([respone.data])
+        return item
+
+        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
+        //setToDo(respone.data)
+        debugger
+
         setIsEdit(0)
     }
 

@@ -44,12 +44,17 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(id)
         setValue(title)
     }
-    const saveToDo = async (id: number, item: ToDoType) => {
-        if (item.id === id) {
-            item.title = value
-        }
-        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
-        setToDo([respone.data])
+    const saveToDo = async (item: ToDoType) => {
+        // const newTextToDo = [...toDo].map(item => {
+        //     if (item.id === id) {
+        //         item.title = value
+        //     }
+        //     return item
+        // })
+
+        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos`, newTextToDo)
+        setToDo(respone.data)
+
         setIsEdit(0)
     }
 
@@ -77,7 +82,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                 <div className={style.editModal}>
                                     <input className={style.editInput} onChange={(e) => setValue(e.target.value)} value={value} />
                                     <div className={style.btnEditBlock}>
-                                        <button className={style.saveBtn} onClick={() => saveToDo(item.id, item)}>Save</button>
+                                        <button className={style.saveBtn} onClick={() => saveToDo(item)}>Save</button>
                                         <button className={style.cancelBtn} onClick={() => setIsEdit(0)}>Cancel</button>
                                     </div>
 

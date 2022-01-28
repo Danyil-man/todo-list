@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
+import { isTemplateTail } from "typescript";
 import style from './AddToDo.module.css'
 
 export type ToDoType = {
@@ -9,6 +10,7 @@ export type ToDoType = {
 }
 
 type ToDoListType = {
+    //item: ToDoType
     toDo: Array<ToDoType>
     setToDo: (toDo: Array<ToDoType>) => void
 }

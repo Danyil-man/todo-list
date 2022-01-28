@@ -45,11 +45,19 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setValue(title)
     }
     const saveToDo = async (id: number, item: ToDoType) => {
+        const newTextToDo = [...toDo].map(item => {
+            if (item.id === id) {
+                item.title = value
+            }
+            return item
+        })
         if (item.id === id) {
             item.title = value
         }
-        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
-        setToDo([respone.data])
+
+        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos`, { id, title: value, status: true })
+        setToDo(respone.data)
+
         setIsEdit(0)
     }
 
