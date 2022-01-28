@@ -105,7 +105,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                     }</>
             ) : (
                 <>
-                    <h1>No Todo-s here</h1>
                 </>
             )}
 
