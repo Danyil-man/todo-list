@@ -1,0 +1,14 @@
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.container {
+  width: 100%;
+}
+
+.checkedBlock {
+}
+
+.navigationBlock {
+}

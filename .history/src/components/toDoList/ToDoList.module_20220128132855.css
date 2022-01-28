@@ -1,0 +1,33 @@
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkedBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.doText {
+  font-size: 24px;
+}
+
+.checkedIcons {
+  font-size: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.navigationBlock {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}

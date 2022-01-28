@@ -1,0 +1,24 @@
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkedBlock {
+  display: flex;
+  align-items: center;
+}
+
+.checkedIcons {
+  font-size: 23px;
+  margin-right: 15px;
+}
+
+.navigationBlock {
+}

@@ -1,0 +1,16 @@
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.checkedBlock {
+}
+
+.navigationBlock {
+}
