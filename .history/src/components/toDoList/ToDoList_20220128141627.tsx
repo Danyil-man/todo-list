@@ -19,15 +19,15 @@ type ToDoListType = {
 
 const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
-    const [isDelete, setIsDelete] = useState(Number)
+    const [isDelete, setIsDelete] = useState(false)
     const [value, setValue] = useState('')
 
 
     const deleteToDo = async (id: number) => {
+        setIsDelete(id)
         const delToDo = [...toDo].filter(item => item.id !== id)
         setToDo(delToDo)
         axios.delete(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
-        setIsDelete(0)
     }
     const statusToDo = (id: number) => {
         const newStatus = [...toDo].filter(item => {
@@ -63,14 +63,13 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                     <div key={item.id}>
                         {
                             isDelete === item.id && (
-                                <div className={style.editBlock}>
-                                    <div className={style.editModal}>
-                                        <h6 className={style.deleteQuestion}>Delete '{item.title}' Todo? </h6>
-                                        <div className={style.btnEditBlock}>
-                                            <button className={style.saveBtn} onClick={() => deleteToDo(item.id)}>Delete</button>
-                                            <button className={style.cancelBtn} onClick={() => setIsDelete(0)}>Cancel</button>
-                                        </div>
+                                <div className={style.editModal}>
+                                    <input className={style.editInput} onChange={(e) => setValue(e.target.value)} value={value} />
+                                    <div className={style.btnEditBlock}>
+                                        <button className={style.saveBtn} onClick={() => saveToDo(item.id)}>Delete</button>
+                                        <button className={style.cancelBtn} onClick={() => setIsEdit(0)}>Cancel</button>
                                     </div>
+
                                 </div>
                             )
                         }

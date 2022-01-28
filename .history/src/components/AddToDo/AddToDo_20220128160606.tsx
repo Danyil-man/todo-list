@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import { isTemplateTail } from "typescript";
 import style from './AddToDo.module.css'
 
 export type ToDoType = {
@@ -19,16 +18,16 @@ type ToDoListType = {
 
 const AddToDo: FC<ToDoListType> = ({ setToDo, toDo }) => {
     const [toDoValue, setToDoValue] = useState('')
-    const toDoObj = { title: toDoValue, status: true }
+    //const toDoObj = { id: item.id, title: toDoValue, status: item.status }
     const addToDo = async () => {
 
-        const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos', toDoObj)
-        setToDo([...toDo, response.data]) //{ id: 3, title: toDoValue, status: true }
+        //const response = await axios.post('https://61f29e642219930017f50783.mockapi.io/todos')
+        setToDo([...toDo, { id: 3, title: toDoValue, status: true }]) //{ id: 3, title: toDoValue, status: true }
         setToDoValue('')
     }
     return (
         <div className={style.content}>
-            <input className={style.input} placeholder="Add Todo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
+            <input className={style.input} placeholder="Add ToDo" onChange={(e) => setToDoValue(e.target.value)} value={toDoValue} />
             <button className={style.button} onClick={addToDo}>Add</button>
         </div>
     )

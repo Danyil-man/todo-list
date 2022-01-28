@@ -22,13 +22,13 @@ input {
   color: #fff;
   cursor: pointer;
   margin: 5px;
-  padding: 12px;
+  padding: 11px;
   transition: 0.3s ease-in-out;
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input:focus {

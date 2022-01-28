@@ -64,8 +64,8 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                         {
                             isDelete === item.id && (
                                 <div className={style.editBlock}>
-                                    <div className={style.editModal}>
-                                        <h6 className={style.deleteQuestion}>Delete '{item.title}' Todo? </h6>
+                                    <div key={item.id} className={style.editModal}>
+                                        <h6>Delete '{item.title}' Todo? </h6>
                                         <div className={style.btnEditBlock}>
                                             <button className={style.saveBtn} onClick={() => deleteToDo(item.id)}>Delete</button>
                                             <button className={style.cancelBtn} onClick={() => setIsDelete(0)}>Cancel</button>

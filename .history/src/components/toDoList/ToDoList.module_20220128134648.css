@@ -1,0 +1,57 @@
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editBlock {
+  position: absolute;
+  background-color: #000;
+}
+
+.checkedBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.doText {
+  font-size: 24px;
+}
+
+.checkedIcons {
+  font-size: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.navigationBlock {
+  width: 100%;
+  max-width: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteIcon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.deleteIcon:hover {
+  color: red;
+}
+
+.editIcon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.editIcon:hover {
+  color: green;
+}

@@ -24,10 +24,10 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
 
 
     const deleteToDo = async (id: number) => {
+        setIsDelete(id)
         const delToDo = [...toDo].filter(item => item.id !== id)
         setToDo(delToDo)
         axios.delete(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
-        setIsDelete(0)
     }
     const statusToDo = (id: number) => {
         const newStatus = [...toDo].filter(item => {
@@ -61,19 +61,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
             {
                 toDo.map(item =>
                     <div key={item.id}>
-                        {
-                            isDelete === item.id && (
-                                <div className={style.editBlock}>
-                                    <div className={style.editModal}>
-                                        <h6 className={style.deleteQuestion}>Delete '{item.title}' Todo? </h6>
-                                        <div className={style.btnEditBlock}>
-                                            <button className={style.saveBtn} onClick={() => deleteToDo(item.id)}>Delete</button>
-                                            <button className={style.cancelBtn} onClick={() => setIsDelete(0)}>Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        }
                         {isEdit === item.id ? (
                             <div className={style.editBlock}>
                                 <div className={style.editModal}>
@@ -84,6 +71,18 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     </div>
 
                                 </div>
+                                {
+                                    isDelete === item.id && (
+                                        <div className={style.editModal}>
+                                            <input className={style.editInput} onChange={(e) => setValue(e.target.value)} value={value} />
+                                            <div className={style.btnEditBlock}>
+                                                <button className={style.saveBtn} onClick={() => saveToDo(item.id)}>Delete</button>
+                                                <button className={style.cancelBtn} onClick={() => setIsEdit(0)}>Cancel</button>
+                                            </div>
+
+                                        </div>
+                                    )
+                                }
                             </div>
 
                         ) : (
@@ -96,7 +95,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>
                                 </div>
                                 <div className={style.navigationBlock}>
-                                    <FontAwesomeIcon className={style.deleteIcon} onClick={() => setIsDelete(item.id)} icon={faTrash} />
+                                    <FontAwesomeIcon className={style.deleteIcon} onClick={() => deleteToDo(item.id)} icon={faTrash} />
                                     <FontAwesomeIcon className={style.editIcon} onClick={() => editToDo(item.id, item.title)} icon={faEdit} />
 
                                 </div>

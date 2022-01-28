@@ -34,10 +34,6 @@
   justify-content: space-around;
 }
 
-.deleteQuestion {
-  font-size: 18px;
-}
-
 .saveBtn {
   width: 150px;
   height: 40px;
@@ -64,11 +60,6 @@
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-}
-
-.cancelBtn:hover {
-  background-color: #333;
-  color: #fff;
 }
 
 .checkedBlock {
