@@ -1,6 +1,6 @@
 
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCheckSquare, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare, faEdit, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { FC, useEffect, useState } from "react";
