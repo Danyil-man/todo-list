@@ -34,6 +34,8 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
             item.status = !item.status
         }
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        setStatus(!status)
+
     }
 
     const editToDo = (id: number, title: string) => {
@@ -48,9 +50,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(0)
     }
 
-    useEffect(() => {
 
-    }, [status])
 
     return (
         <div>

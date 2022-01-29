@@ -34,6 +34,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
             item.status = !item.status
         }
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        axios.get('https://61f29e642219930017f50783.mockapi.io/todos')
     }
 
     const editToDo = (id: number, title: string) => {
@@ -88,7 +89,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     <div className={style.container}>
                                         <div className={style.checkedBlock}>
                                             {
-                                                item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
+                                                status === item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
                                                     : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
                                             }
                                             <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>

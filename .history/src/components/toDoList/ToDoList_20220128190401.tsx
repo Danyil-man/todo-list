@@ -21,7 +21,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -33,6 +32,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.status = !item.status
         }
+        setStatus(item.status)
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
     }
 
@@ -50,7 +50,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
 
     useEffect(() => {
 
-    }, [status])
+    }, [])
 
     return (
         <div>
@@ -88,7 +88,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     <div className={style.container}>
                                         <div className={style.checkedBlock}>
                                             {
-                                                item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
+                                                status !== item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
                                                     : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
                                             }
                                             <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>

@@ -3,7 +3,7 @@ import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { faCheckSquare, faEdit, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import style from "./ToDoList.module.css"
 
 type ToDoType = {
@@ -30,10 +30,14 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsDelete(0)
     }
     const statusToDo = async (id: number, item: ToDoType) => {
+
         if (item.id === id) {
             item.status = !item.status
         }
+
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        setStatus(item.status)
+
     }
 
     const editToDo = (id: number, title: string) => {
@@ -47,11 +51,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
         setIsEdit(0)
     }
-
-    useEffect(() => {
-
-    }, [status])
-
     return (
         <div>
             {toDo.length > 0 ? (
@@ -88,8 +87,8 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     <div className={style.container}>
                                         <div className={style.checkedBlock}>
                                             {
-                                                item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
-                                                    : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
+                                                status === item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
+                                                    : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
                                             }
                                             <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>
                                         </div>

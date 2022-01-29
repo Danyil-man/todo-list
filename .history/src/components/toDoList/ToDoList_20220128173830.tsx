@@ -1,9 +1,9 @@
 
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCheckSquare, faEdit, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import style from "./ToDoList.module.css"
 
 type ToDoType = {
@@ -21,19 +21,20 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
+
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
         setToDo(delToDo)
-        await axios.delete(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
+        axios.delete(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
         setIsDelete(0)
     }
     const statusToDo = async (id: number, item: ToDoType) => {
         if (item.id === id) {
             item.status = !item.status
         }
-        await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        const response = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        setToDo([...toDo, response.data])
     }
 
     const editToDo = (id: number, title: string) => {
@@ -44,14 +45,12 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.title = value
         }
-        await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        const respone = await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        setToDo([respone.data])
         setIsEdit(0)
     }
 
-    useEffect(() => {
-
-    }, [status])
-
+    console.log(toDo)
     return (
         <div>
             {toDo.length > 0 ? (

@@ -21,7 +21,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState(Boolean)
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -33,6 +33,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.status = !item.status
         }
+        setStatus(item.status)
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
     }
 
@@ -50,7 +51,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
 
     useEffect(() => {
 
-    }, [status])
+    }, [])
 
     return (
         <div>

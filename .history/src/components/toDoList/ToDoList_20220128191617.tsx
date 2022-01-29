@@ -21,7 +21,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -34,23 +33,26 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
             item.status = !item.status
         }
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        const res = await axios.get(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
+
     }
 
     const editToDo = (id: number, title: string) => {
         setIsEdit(id)
         setValue(title)
     }
-    const saveToDo = async (id: number, item: ToDoType) => {
+    const saveToDo = (id: number, item: ToDoType) => {
         if (item.id === id) {
             item.title = value
         }
-        await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
-        setIsEdit(0)
+        axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        axios.get(`https://61f29e642219930017f50783.mockapi.io/todos/${id}``)
+         setIsEdit(0)
     }
 
     useEffect(() => {
 
-    }, [status])
+    }, [])
 
     return (
         <div>
@@ -91,7 +93,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                                 item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
                                                     : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
                                             }
-                                            <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>
+                                            <p className={`${ item.status ? '' : style.done } ${ style.doText } `}>{item.title}</p>
                                         </div>
                                         <div className={style.navigationBlock}>
                                             <FontAwesomeIcon className={style.deleteIcon} onClick={() => setIsDelete(item.id)} icon={faTrash} />

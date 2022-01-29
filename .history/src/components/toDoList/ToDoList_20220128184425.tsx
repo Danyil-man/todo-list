@@ -21,7 +21,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -48,9 +47,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(0)
     }
 
-    useEffect(() => {
 
-    }, [status])
 
     return (
         <div>

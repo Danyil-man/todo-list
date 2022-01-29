@@ -21,7 +21,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -29,11 +28,16 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         await axios.delete(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`)
         setIsDelete(0)
     }
+    const isToDoDone = (id: number) => {
+        return toDo.some((item: ToDoType) => item.id === id)
+    }
     const statusToDo = async (id: number, item: ToDoType) => {
         if (item.id === id) {
             item.status = !item.status
         }
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        debugger
+        isToDoDone(id)
     }
 
     const editToDo = (id: number, title: string) => {
@@ -48,9 +52,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(0)
     }
 
-    useEffect(() => {
 
-    }, [status])
 
     return (
         <div>

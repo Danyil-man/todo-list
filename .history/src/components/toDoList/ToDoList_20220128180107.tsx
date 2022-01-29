@@ -1,9 +1,9 @@
 
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCheckSquare, faEdit, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import style from "./ToDoList.module.css"
 
 type ToDoType = {
@@ -21,7 +21,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
+
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -48,10 +48,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(0)
     }
 
-    useEffect(() => {
-
-    }, [status])
-
+    console.log(toDo)
     return (
         <div>
             {toDo.length > 0 ? (

@@ -1,9 +1,9 @@
 
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCheckSquare, faEdit, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import style from "./ToDoList.module.css"
 
 type ToDoType = {
@@ -21,7 +21,8 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     const [isEdit, setIsEdit] = useState(Number)
     const [isDelete, setIsDelete] = useState(Number)
     const [value, setValue] = useState('')
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState(Boolean)
+
 
     const deleteToDo = async (id: number) => {
         const delToDo = [...toDo].filter(item => item.id !== id)
@@ -33,7 +34,10 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.status = !item.status
         }
+        setStatus(item.status)
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
+        debugger
+
     }
 
     const editToDo = (id: number, title: string) => {
@@ -48,10 +52,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         setIsEdit(0)
     }
 
-    useEffect(() => {
-
-    }, [status])
-
+    console.log(toDo)
     return (
         <div>
             {toDo.length > 0 ? (
@@ -88,10 +89,10 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
                                     <div className={style.container}>
                                         <div className={style.checkedBlock}>
                                             {
-                                                item.status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
+                                                status ? <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faSquare} />
                                                     : <FontAwesomeIcon className={style.checkedIcons} onClick={() => statusToDo(item.id, item)} icon={faCheckSquare} />
                                             }
-                                            <p className={`${item.status ? '' : style.done} ${style.doText} `}>{item.title}</p>
+                                            <p className={`${status ? '' : style.done} ${style.doText} `}>{item.title}</p>
                                         </div>
                                         <div className={style.navigationBlock}>
                                             <FontAwesomeIcon className={style.deleteIcon} onClick={() => setIsDelete(item.id)} icon={faTrash} />
