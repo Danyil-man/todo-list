@@ -33,7 +33,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
         if (item.id === id) {
             item.status = !item.status
         }
-        setStatus(!status)
         await axios.put(`https://61f29e642219930017f50783.mockapi.io/todos/${id}`, item)
     }
 
@@ -50,8 +49,7 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
     }
 
     useEffect(() => {
-        axios.get('https://61f29e642219930017f50783.mockapi.io/todos')
-        console.log('axios get')
+
     }, [status])
 
     return (

@@ -51,7 +51,6 @@ const ToDoList: FC<ToDoListType> = ({ toDo, setToDo }) => {
 
     useEffect(() => {
         axios.get('https://61f29e642219930017f50783.mockapi.io/todos')
-        console.log('axios get')
     }, [status])
 
     return (
