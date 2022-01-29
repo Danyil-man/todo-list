@@ -6,7 +6,7 @@ const PageRouting = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path='/' component={Home} />
+                <Route exact path='/todo-list' component={Home} />
             </Switch>
         </BrowserRouter>
     )
