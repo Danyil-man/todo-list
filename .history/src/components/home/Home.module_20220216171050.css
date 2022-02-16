@@ -30,10 +30,4 @@
 }
 
 @media screen and (max-width: 500px) {
-  .container {
-    width: 100vw;
-    height: calc(100vh - 50px);
-    margin: 20px;
-    overflow: scroll;
-  }
 }

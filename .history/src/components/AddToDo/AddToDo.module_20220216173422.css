@@ -43,12 +43,11 @@ input:focus {
 }
 
 @media screen and (max-width: 500px) {
-  .input {
+  input {
     padding: 14px;
     font-size: 14px;
   }
   .button {
-    padding: 10px;
-    font-size: 14px;
+    font-size: 10px;
   }
 }

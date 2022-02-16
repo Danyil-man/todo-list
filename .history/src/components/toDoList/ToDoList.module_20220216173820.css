@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .editBlock {
@@ -75,6 +74,7 @@
 .checkedBlock {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .doText {
@@ -117,12 +117,6 @@
     font-size: 22px;
   }
   .checkedIcons {
-    font-size: 18px;
-  }
-  .deleteIcon {
-    font-size: 18px;
-  }
-  .editIcon {
     font-size: 18px;
   }
 }

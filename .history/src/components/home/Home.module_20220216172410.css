@@ -18,6 +18,7 @@
   text-align: center;
   color: #333;
   margin: 200px 20px 20px 20px;
+  overflow: scroll;
 }
 
 .header {
@@ -34,6 +35,5 @@
     width: 100vw;
     height: calc(100vh - 50px);
     margin: 20px;
-    overflow: scroll;
   }
 }
